@@ -1,0 +1,273 @@
+{
+  "984": {
+    "name": "Starbucks",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_aKHKL2n.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4c7a98972abb3977bcbcece6d29ba1382bae2da9578e4ce2ab1e260bdc316e2c"
+  },
+  "1037": {
+    "name": "Entrance to Lobby Floor 2",
+    "zoneId": "",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_VruFCRb.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=378e0f4b9847943d3341f4eb0d3a21287f72ad98425f2bd95262a4d8698ac982"
+  },
+  "1023": {
+    "name": "Stairs to Train Line 1",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_LGlmdFu.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=add0f76ace5d227b8d0fdfba8b10ea3905acbb3289ddb4a4235f91b58b91c529"
+  },
+  "1036": {
+    "name": "ATM",
+    "zoneId": "",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_Hk6WxIt.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56720f30a8e4dcca6438f7f6e88f7a0dfa3f4ca082409e873bf4549d150cd333"
+  },
+  "1016": {
+    "name": "Train Arrival Direction",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_XvarXlg.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6a4de682e73c171e5ad427c78c3746c9be83b61b28adec690ac7bd9fb4b41f9e"
+  },
+  "1014": {
+    "name": "Stairs to Restauradores & Metro Access",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_CovmmPI.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4ec907d988093e48e1902ea3f0c7f4789cbaf0695d5a042239ccc55a3ecbac29"
+  },
+  "1017": {
+    "name": "Bathroom",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_HETkTXD.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c9074bafc0e9940552e349371921edc85e61165505bd787fc42ea18c420a8323"
+  },
+  "999": {
+    "name": "Elevator",
+    "zoneId": "",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_iRAZ7p3.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=22d025115fb88a63ee996eab2c24b0d0f5e8a1d05e3028f9481aeab5a9e594e1"
+  },
+  "990": {
+    "name": "Portugal Essential Store",
+    "zoneId": 3,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_ebNb5hB.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=93e1d4cb7fdd136a9786684d1a98b711dab46477ce4e0a7a09e0490a96228d76"
+  },
+  "991": {
+    "name": "Stairs",
+    "zoneId": 3,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_y6NdWUh.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=527d24586901b02fb24bcda2f5029b10420a57fb95eef4a02ddd9bf8c051399a"
+  },
+  "1015": {
+    "name": "Train Departure Direction",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_vMBeZZc.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e05aff8a7f41a56f90e01e6e01953ff855b1ff013f2500396e588d70d7da179b"
+  },
+  "993": {
+    "name": "Exit to December 1st Street",
+    "zoneId": 3,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_R77dhCr.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=15a9d04d6f356ef8d9058fafaaa88368394458a0573a2079edb009aa57c2c182"
+  },
+  "1003": {
+    "name": "Ticket booth",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_g8ACrZm.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f6a88f5d2ad8bb2c2f5417ebcc23dfa7e7512df38952a10055c7f151f21ae915"
+  },
+  "1004": {
+    "name": "Train Platform Direction",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_tI1ekb9.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c3abedc1ec88d6a8410fd8d9ba142b65a9039f6cdbd2b6fc050e0fc20b8be0a1"
+  },
+  "994": {
+    "name": "Starbucks",
+    "zoneId": 3,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_msLo0tp.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=db024aee9900ee39c979bc456f5c6047e8ed627646208323026a70baa6c56c7b"
+  },
+  "1018": {
+    "name": "Platform Exit Gates",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_f2g5vjq.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d41fdec31e9945146d448bdfd9b9919bc94caa36e4079631835ed57ee9c4c51d"
+  },
+  "998": {
+    "name": "CP Store",
+    "zoneId": 3,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_ojBWBAM.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=978254bf8218622584014f799cc25893d4c380aeac827816c8dceeb75f367467"
+  },
+  "1002": {
+    "name": "Stairs to Ground Floor",
+    "zoneId": 4,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_rMZodwA.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3b5b1a485c4f1bb703e6693f2e4a8c7e7620d6b126d412f4507ad741ebbe401f"
+  },
+  "1019": {
+    "name": "Platform Exit Gate (Special Gate)",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_jnNTLLI.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6982923f677a85e2d2405a20315a044733b5149a95c4149c3df804f3646e5bf6"
+  },
+  "1001": {
+    "name": "Stairs to 2nd Floor",
+    "zoneId": 4,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_fo4J4gG.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d1ff91c4e6effa4170edd6d163f1a8c770f0a547327e7fca61f29ed14eb39ba7"
+  },
+  "1000": {
+    "name": "Escalator to Ground Floor",
+    "zoneId": 4,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_nBCaQ3z.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e25ba56e17c35c5135efe7c37d0259b8ba80f24a95a8c3f4f70d1210156823d4"
+  },
+  "997": {
+    "name": "Exit to Largo do Duque de Cadaval",
+    "zoneId": 4,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_nw6Asrx.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6ddeb5efd7d91fac045a3ee12ae0817de3843d158d587ca111d3a01b17de09cb"
+  },
+  "995": {
+    "name": "Coffe Shop \"Leve\"",
+    "zoneId": 4,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_gFvN6It.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=2ab82cd7fba30cbc36fd54b46bfe9875a7c753a04b4bcd4354f1b8d5d2426634"
+  },
+  "1005": {
+    "name": "Elevator Direction",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_1qL0Ar2.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=faf1801a1e47bda162a288a9eb3fa86cc4c6c45a39918baf855a63832cb5d9b6"
+  },
+  "1020": {
+    "name": "Exit Gates",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_cSCqOC4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=50608267eedcf51a88fc2000139d5793340d96cbc9a948a847159d80e4ffb9e6"
+  },
+  "987": {
+    "name": "Restauradores Square",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_cxCQMgE.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bc48937c531810c88383c8b81eb2094aae032b4a866de822bf5a8c20c5187311"
+  },
+  "988": {
+    "name": "Avenida Hotel",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_znvrYgX.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d0053081d4b5eea27c18ef62f7a3bbd1a53678c44e4ebea62a8d005e3decc78c"
+  },
+  "1006": {
+    "name": "Exit to Cal\u00e7ada do Carmo",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_D1E4prk.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7699a0bd4295ba5db547a4a3e8e83f1f22cbe2031d8e1311d0ae3083dc9a6e6a"
+  },
+  "1021": {
+    "name": "Exit Gate (Special Gate)",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_LmDblbG.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7114f4763074bd2eb7b37d215c5b980caccd9d45eb3fe00a787c02814aa294ff"
+  },
+  "989": {
+    "name": "Rossio Square",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_dE4DncR.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=73f07506abb28526f147674990c90514c55be1cc969fa6edbb265485777a12d2"
+  },
+  "1022": {
+    "name": "Stairs to Train Line 2 and 3",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_0t65Iut.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d96e7c9481190858cb12108791ec8b1f57e0cd16b03f32c5ec3bd0714867781d"
+  },
+  "1007": {
+    "name": "Automated Ticketing Machine",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_D6tWkgG.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6f6e3c01415be3cdfd9a53161fd596d68e5e95da605852c85dd11fbf30494e85"
+  },
+  "1025": {
+    "name": "Exit Direction & Metro Access",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_S30JOYc.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084142Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e756b6e758c425fb9d78a06caaa202f37ba74d0b4d7c42df9496910201c168e3"
+  },
+  "1008": {
+    "name": "Lisbon Destination Hostel",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_u7SSGtV.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9b8dd9294908c365ad82b21cdcc677afddadb23b87e27ea9d419c75101ed8efd"
+  },
+  "1024": {
+    "name": "Stairs to Train Line 4 and 5",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_lMLze8K.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ef7f87097352df856eb1a1183ea055c9bb86886d2dfba6e619a32fedf6c12420"
+  },
+  "1026": {
+    "name": "Stairs to Train Line 5",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_8i6Xdx6.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d3dfb62b4f695273d3251030b6b8adf7e35ba87170866d57869c2cfdcb106b02"
+  },
+  "1029": {
+    "name": "Stairs to Train Line 3 and 4",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_C1wWmto.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c9f2a357c941c69979cd20af8dc3a1ec4f5232cca45412d7be5a42aa078da576"
+  },
+  "1034": {
+    "name": "Entrance Gate (Special Gate)",
+    "zoneId": 8,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_gJjXjBr.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b8123f2f405927395a266555323bbc661b3601fedba36143725910e3e95e35ee"
+  },
+  "985": {
+    "name": "December 1st Street (south direction)",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_08DsK0r.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a2d44ef938be04bc25e74f33c167eab7e44eb699f6fd4c9ac9f4208ff408e8b8"
+  },
+  "1032": {
+    "name": "Store \"Books and Postcards\"",
+    "zoneId": 8,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_lo9goBH.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8088a776ee5e5e9ae00014bf65c4dee489ffc11d047f0c9b2214f8075549f8e8"
+  },
+  "1035": {
+    "name": "Exit to Floor 2 Lobby",
+    "zoneId": 8,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_FQ7iiW9.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7866678fbb99e1b74fba01e6437cee42a7d07f85dd9ab5837344c726e1a797ea"
+  },
+  "1030": {
+    "name": "Coffee Shop \"Ritual\"",
+    "zoneId": 8,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_ePj8NFu.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8db4f0a535010ff316c6a2720a9344c3cf1dbd0ffea587f88565be299391de09"
+  },
+  "1011": {
+    "name": "Lockers Area",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_jIhPPAX.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=051f10ce7637e9eb92a2820c4afa948f78f4629d7902d0e32a49c9f6b998dced"
+  },
+  "1027": {
+    "name": "Access Corridor to Train Lines 1, 2 and 3",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_BsVWvxd.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=02f14ff731fa688c46936241da7a4bcddf984dec7098c57bc078a7d391cd7bdd"
+  },
+  "1031": {
+    "name": "CP Customer Support",
+    "zoneId": 8,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_JASQets.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a2f0c4a633102f175900c7c6122aa7c78622d7ef874ad0f4a8b2fb83a1fa7ae8"
+  },
+  "1012": {
+    "name": "Train",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_zJ2nhs5.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9eccfae5bc29d394f5fc5a4e45fb7933ddce48c134e9ff547cf945d64b768336"
+  },
+  "1028": {
+    "name": "Access Corridor to Train Lines 2 to 5",
+    "zoneId": 7,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_GJr7nPU.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=05c515c95f40f6fdea0a08304bd14a14d3cc083ef90df386678ac33545a91c05"
+  },
+  "1033": {
+    "name": "Entrance Gates",
+    "zoneId": 8,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_jXt8cur.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e10f027f9a4e1ce6b0394a1f23fe7e8293e3855b202b7bfd4e03d91246ff9b2a"
+  },
+  "983": {
+    "name": "Main Entrance",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_mgOLNfL.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=afa57b9cc2cfc9e1ddf883968764e4ff439bfce0fee1f586c07294f0130d716b"
+  },
+  "986": {
+    "name": "D. Maria II Nacional Theater",
+    "zoneId": 9,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_GSVd9Lm.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d76974b2c58706502448da5328635c757296af83e9556f621f204fb62df25e7b"
+  },
+  "992": {
+    "name": "Escalator",
+    "zoneId": 3,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_L0ai8Al.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d4969e5a548546fdc4c97a5bbe5461d0a67706a7155fc58f936d10b696cbb96b"
+  },
+  "996": { "name": "Escalator to 2nd Floor", "zoneId": 4, "audioUrl": "" },
+  "1009": {
+    "name": "Escalator to 1st Floor",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_nxTbOXU.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=919b0f040ba23c38867dc1c2554ab0539f9f9f80eccbe1051a057daa3625a84a"
+  },
+  "1010": {
+    "name": "Stairs to 1st Floor",
+    "zoneId": 5,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_af2VuU9.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=aa6b8bf8a08ab960e1d42982faee47c1811786b0ace6dadf6c98341ca4cbc1a8"
+  },
+  "1013": {
+    "name": "Train Rail",
+    "zoneId": 6,
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_RbNvwjV.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084143Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=2283ee1235ca2d7a1c4b562a0f1987b33024b45d27175163731efc645b061921"
+  }
+}

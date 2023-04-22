@@ -11,7 +11,6 @@ The application can be used in the following locations in Lisbon:
 
 The source code of the application contained in the repository is released under GNU General Public License (GPL-V3). 
 
-------
 ## Supporters
 
 This project is co-financed by the European Regional Development Fund through the Urban Innovative Actions Initiative.
@@ -21,3 +20,4 @@ This project is co-financed by the European Regional Development Fund through th
 ![alt text](https://github.com/AfonsoCunha/Inclu/blob/main/Docs/Images/Logo_UIA_couleur_Aplat.png?raw=true)
 
 ![alt text](https://github.com/AfonsoCunha/Inclu/blob/main/Docs/Images/Logo_EU_ERDF.png?raw=true)
+

@@ -1,0 +1,30 @@
+{
+  "5": {
+    "name": "Lobby Floor 2",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_fGLxA6C.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=88146043b1f1c03b125414f2f082b666fe612dadd5a9e14376bdfb84b2260548"
+  },
+  "9": {
+    "name": "Rossio Entrance Area",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_IVlYWGt.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4c00eb133def44a039a1c798ef957385cd4e5d22b816a012e567ea4ae5434ec6"
+  },
+  "6": {
+    "name": "Train Platform",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_zP7JlFu.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=51df7d8c0502a4a42362aa061839e4552a84308e3c0add461c725d4d03dc26f0"
+  },
+  "3": {
+    "name": "Lobby Ground Floor",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_rCTaqbu.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=92147faed3459995e744b9ca9d8e608ef541ad16fde9e78d6c338ee2ec965055"
+  },
+  "4": {
+    "name": "Lobby Floor 1",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_AuGUqaH.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c645210de17b68890e51ca4bf33232074fe52373a14341919ccd6bd5e43e2d46"
+  },
+  "7": {
+    "name": "Interface Area",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_xLlSVRu.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1bca23abdeb7e3fe235964f83949e94268460f26cebd12c995720d0c7a93a0de"
+  },
+  "8": {
+    "name": "Train Platform Entrance Area",
+    "audioUrl": "https://zoomguide-production.s3.amazonaws.com/media/thing_audio/audio_kVSQcFd.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5XSZG4TK5SQDMIGZ%2F20230407%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230407T084416Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=225ffc6d423dd5f36be4b9417d0c02d6a79488b76ea453ff466013050f40e2e9"
+  }
+}
