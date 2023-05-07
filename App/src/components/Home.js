@@ -29,7 +29,6 @@ function Home() {
         return { locationId: location.id, distance };
       });
       distances.sort((a, b) => a.distance - b.distance);
-      console.log(distances)
       if (distances[0].distance < 500) {
         navigate(`/camera/${distances[0].locationId}`);
       } else {
