@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { locations } from "../data/locations";
 import SelectLocationModal from "./SelectLocationModal";
-import useWindowDimensions from "../hooks/useWindowDimensions";
 import { Button } from "react-bootstrap";
 import { getRecognitionData, loadRecognitionModel, initializeModel } from "../utils/recognition";
 import { fetchAudio } from "../utils/fetchAudio";
@@ -339,6 +338,15 @@ function Camera({ setErrorMessage }) {
       <div className="camera-div">
         <video ref={videoRef} />
       </div>
+      <a
+        color="primary"
+        className="privacy-policy-btn"
+        onClick={() => {
+          navigate('/privacy-policy');
+        }}
+      >
+        Política de Privacidade
+      </a>
     </div>
   );
 }

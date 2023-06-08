@@ -90,3 +90,28 @@
 .change-location-button {
   font-size: calc(1.325rem + .9vw);
 }
+
+.browser-view-div {
+  top: 0; 
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
+
+.browser-view-h {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  color: white;
+}
+
+.privacy-policy-btn {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
