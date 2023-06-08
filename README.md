@@ -4,8 +4,8 @@ Inclu is a web application which intends to help the blind and the visually impa
 
 The application can be used in the following locations in Lisbon:
 * Rossio Train Station
-* Others in development
-
+* Cais do Sodré Transportation Interface
+* Palácio Pimenta
 
 ## Licenses
 
