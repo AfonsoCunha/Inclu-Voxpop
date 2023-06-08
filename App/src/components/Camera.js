@@ -17,7 +17,6 @@ function Camera({ setErrorMessage }) {
   const [cameraActive, setCameraActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { windowHeight, windowWidth } = useWindowDimensions();
   const recognitionModel = useRef({
     model: undefined,
     locationId: undefined,
@@ -46,7 +45,7 @@ function Camera({ setErrorMessage }) {
       return new Promise((resolve, reject) => {
         function launchCameraIfPortrait() {
           setTimeout(function () {
-            if (window.screen.orientation.angle === 0) {
+            if (window.innerHeight/window.innerWidth > 1) {
               window.removeEventListener("orientationchange", launchCameraIfPortrait);
               resolve(launchCamera());
               setErrorMessage("");
@@ -54,10 +53,10 @@ function Camera({ setErrorMessage }) {
           }, 1500);
         }
 
-        if (window.screen.orientation.angle === 0) {
+        if (window.innerHeight/window.innerWidth > 1) {
           function calculateCameraStreamConstraints() {
-            let aspectRatio = windowWidth / windowHeight;
-            let streamWidth = Math.max(windowWidth, 224);
+            let aspectRatio = window.innerWidth / window.innerHeight;
+            let streamWidth = Math.max(window.innerWidth, 224);
 
             let streamHeight = streamWidth / aspectRatio;
 
@@ -104,17 +103,17 @@ function Camera({ setErrorMessage }) {
                   let vw, vh; // display css width, height
                   const streamAspectRatio =
                     stream.getVideoTracks()[0].getSettings().width / stream.getVideoTracks()[0].getSettings().height;
-                  const windowAspectRatio = windowWidth / windowHeight;
+                  const windowAspectRatio = window.innerWidth / window.innerHeight;
                   if (streamAspectRatio > windowAspectRatio) {
-                    vh = windowHeight;
+                    vh = window.innerHeight;
                     vw = vh * streamAspectRatio;
                   } else {
-                    vw = windowWidth;
+                    vw = window.innerWidth;
                     vh = vw / streamAspectRatio;
                   }
                   videoRef.current.style.zIndex = "-2";
-                  videoRef.current.style.top = -(vh - windowHeight) / 2 + "px";
-                  videoRef.current.style.left = -(vw - windowWidth) / 2 + "px";
+                  videoRef.current.style.top = -(vh - window.innerHeight) / 2 + "px";
+                  videoRef.current.style.left = -(vw - window.innerWidth) / 2 + "px";
                   videoRef.current.style.width = vw + "px";
                   videoRef.current.style.height = vh + "px";
                 });
@@ -149,8 +148,8 @@ function Camera({ setErrorMessage }) {
         canvas.height = 224;
 
         let xStream = ((0 + Math.abs(parseFloat(videoRef.current.style.left))) * videoStreamWidth) / videoWidth;
-        let yStream = (((windowHeight - windowWidth) / 2) * videoStreamHeight) / videoHeight;
-        let lStream = (Math.max(windowWidth, 224) * videoStreamWidth) / videoWidth;
+        let yStream = (((window.innerHeight - window.innerWidth) / 2) * videoStreamHeight) / videoHeight;
+        let lStream = (Math.max(window.innerWidth, 224) * videoStreamWidth) / videoWidth;
 
         context.drawImage(videoRef.current, xStream, yStream, lStream, lStream, 0, 0, 224, 224);
 
@@ -228,7 +227,7 @@ function Camera({ setErrorMessage }) {
         // Only perform inference if device is in portrait mode
         // Only perform inference if the audio for a zone that was obtained by scanning a item contained in that zone is no longer playing,
         // in order to avoid immediately superimposing the item audio over the zone audio
-        if (window.screen.orientation.angle === 0 && (!previousContentForItemWasZone || audio.paused)) {
+        if ((window.innerHeight/window.innerWidth > 1) && (!previousContentForItemWasZone || audio.paused)) {
           let preProcessedFrame = preProcessFrame(
             stream.getVideoTracks()[0].getSettings().width,
             stream.getVideoTracks()[0].getSettings().height
@@ -310,6 +309,7 @@ function Camera({ setErrorMessage }) {
         }
       })
       .catch((error) => {
+        console.log(error)
         setErrorMessage("A câmara não está disponível. Por favor permita o acesso à câmara e recarregue a app.");
         setIsLoading(false);
       });
