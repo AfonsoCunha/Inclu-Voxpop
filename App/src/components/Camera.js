@@ -3,7 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { locations } from "../data/locations";
 import SelectLocationModal from "./SelectLocationModal";
 import { Button } from "react-bootstrap";
-import { getRecognitionData, loadRecognitionModel, initializeModel } from "../utils/recognition";
+import {
+  getRecognitionData,
+  loadRecognitionModel,
+  initializeModel,
+} from "../utils/recognition";
 import { fetchAudio } from "../utils/fetchAudio";
 import * as tf from "@tensorflow/tfjs";
 
@@ -44,94 +48,223 @@ function Camera({ setErrorMessage }) {
       return new Promise((resolve, reject) => {
         function launchCameraIfPortrait() {
           setTimeout(function () {
-            if (window.innerHeight/window.innerWidth > 1) {
-              window.removeEventListener("orientationchange", launchCameraIfPortrait);
+            if (window.innerHeight / window.innerWidth > 1) {
+              window.removeEventListener(
+                "orientationchange",
+                launchCameraIfPortrait
+              );
               resolve(launchCamera());
               setErrorMessage("");
             }
           }, 1500);
         }
 
-        if (window.innerHeight/window.innerWidth > 1) {
-          function calculateCameraStreamConstraints() {
-            let aspectRatio = window.innerWidth / window.innerHeight;
-            let streamWidth = Math.max(window.innerWidth, 224);
+        if (window.innerHeight / window.innerWidth > 1) {
+          async function calculateCameraStreamConstraints() {
+            return new Promise((resolve, reject) => {
+              let aspectRatio = window.innerWidth / window.innerHeight;
+              let streamWidth = Math.max(window.innerWidth, 224);
 
-            let streamHeight = streamWidth / aspectRatio;
+              let streamHeight = streamWidth / aspectRatio;
 
-            let constraints = {
-              audio: false,
-              video: {
-                facingMode: "environment",
-                width: streamWidth,
-                height: streamHeight,
-                zoom: 1,
-                deviceId: "",
-              },
-            };
+              let constraints = {
+                audio: false,
+                video: {
+                  facingMode: "environment",
+                  width: streamWidth,
+                  height: streamHeight,
+                  zoom: 1,
+                  deviceId: "",
+                },
+              };
+              console.log("window.innerHeight" + window.innerHeight);
+              console.log("window.innerWidth" + window.innerWidth);
+              console.log("windowAspectRatio: " + aspectRatio);
+              console.log(constraints);
 
-            return constraints;
+              navigator.mediaDevices
+                .enumerateDevices()
+                .then((devices) => {
+                  let environmentVideoCameras = devices.filter(
+                    (device) =>
+                      device.kind === "videoinput" &&
+                      device.label.includes("back")
+                  );
+                  if (environmentVideoCameras.length > 1) {
+                    let camera;
+                    let cameraClosestToTarget;
+
+                    function getCameraCapabilities(camera) {
+                      constraints.video.deviceId = camera.deviceId;
+
+                      navigator.mediaDevices
+                        .getUserMedia(constraints)
+                        .then(function (stream) {
+                          let capabilities = stream
+                            .getVideoTracks()[0]
+                            .getCapabilities();
+                          stream.getTracks()[0].stop();
+                          let zoomRangeError = Math.abs(
+                            capabilities.zoom.max - capabilities.zoom.min - 10
+                          );
+                          if (cameraClosestToTarget) {
+                            if (
+                              cameraClosestToTarget.zoomRangeError >
+                              zoomRangeError
+                            ) {
+                              cameraClosestToTarget = {
+                                deviceId: camera.deviceId,
+                                zoomRangeError: zoomRangeError,
+                              };
+                            }
+                          } else {
+                            cameraClosestToTarget = {
+                              deviceId: camera.deviceId,
+                              zoomRangeError: zoomRangeError,
+                            };
+                          }
+                          if (environmentVideoCameras.length > 0) {
+                            camera = environmentVideoCameras.pop();
+                            getCameraCapabilities(camera);
+                          } else {
+                            resolve({
+                              audio: false,
+                              video: {
+                                facingMode: "environment",
+                                width: streamHeight,
+                                height: streamWidth,
+                                zoom: 1,
+                                deviceId: cameraClosestToTarget.deviceId,
+                              },
+                            });
+                          }
+                        })
+                        .catch(function (err) {
+                          console.log(err);
+                          resolve({
+                            audio: false,
+                            video: {
+                              facingMode: "environment",
+                              width: streamHeight,
+                              height: streamWidth,
+                              zoom: 1,
+                              deviceId: "",
+                            },
+                          });
+                        });
+                    }
+                    camera = environmentVideoCameras.pop();
+                    getCameraCapabilities(camera);
+                  } else {
+                    resolve({
+                      audio: false,
+                      video: {
+                        facingMode: "environment",
+                        width: streamHeight,
+                        height: streamWidth,
+                        zoom: 1,
+                        deviceId: "",
+                      },
+                    });
+                  }
+                })
+                .catch(function (err) {
+                  resolve({
+                    audio: false,
+                    video: {
+                      facingMode: "environment",
+                      width: streamHeight,
+                      height: streamWidth,
+                      zoom: 1,
+                      deviceId: "",
+                    },
+                  });
+                });
+            });
           }
 
-          let constraints = calculateCameraStreamConstraints();
+          setTimeout(async function () {
+            let constraints = await calculateCameraStreamConstraints();
 
-          // Provide a minimum and maximum width/height range because if I set very specific ideal dimensions the stream is glitchy in some phones
-          constraints["video"]["width"] = {
-            min: Math.round(constraints["video"]["width"]),
-            max: Math.round(constraints["video"]["width"] * 2),
-          };
-          constraints["video"]["height"] = {
-            min: Math.round(constraints["video"]["height"]),
-            max: Math.round(constraints["video"]["height"] * 2),
-          };
+            // Provide a minimum and maximum width/height range because if I set very specific ideal dimensions the stream is glitchy in some phones
+            constraints["video"]["width"] = {
+              min: Math.round(constraints["video"]["width"]),
+              max: Math.round(constraints["video"]["width"] * 2),
+            };
+            constraints["video"]["height"] = {
+              min: Math.round(constraints["video"]["height"]),
+              max: Math.round(constraints["video"]["height"] * 2),
+            };
 
-          navigator.mediaDevices
-            .getUserMedia(constraints)
-            .then((stream) => {
-              if (videoRef.current) {
-                videoRef.current.srcObject = stream;
+            navigator.mediaDevices
+              .getUserMedia(constraints)
+              .then((stream) => {
+                if (videoRef.current) {
+                  videoRef.current.srcObject = stream;
 
-                videoRef.current.setAttribute("autoplay", "");
-                videoRef.current.setAttribute("muted", "");
-                videoRef.current.setAttribute("playsinline", "");
-                videoRef.current.style.position = "absolute";
+                  videoRef.current.setAttribute("autoplay", "");
+                  videoRef.current.setAttribute("muted", "");
+                  videoRef.current.setAttribute("playsinline", "");
+                  videoRef.current.style.position = "absolute";
 
-                // This timeout is necessary because otherwise stream.getVideoTracks()[0].getSettings().width
-                // stream.getVideoTracks()[0].getSettings().height are reversed in Firefox (Chrome is not an issue);
-                setTimeout(() => {
-                  let vw, vh; // display css width, height
-                  const streamAspectRatio =
-                    stream.getVideoTracks()[0].getSettings().width / stream.getVideoTracks()[0].getSettings().height;
-                  const windowAspectRatio = window.innerWidth / window.innerHeight;
-                  if (streamAspectRatio > windowAspectRatio) {
-                    vh = window.innerHeight;
-                    vw = vh * streamAspectRatio;
-                  } else {
-                    vw = window.innerWidth;
-                    vh = vw / streamAspectRatio;
-                  }
-                  videoRef.current.style.zIndex = "-2";
-                  videoRef.current.style.top = -(vh - window.innerHeight) / 2 + "px";
-                  videoRef.current.style.left = -(vw - window.innerWidth) / 2 + "px";
-                  videoRef.current.style.width = vw + "px";
-                  videoRef.current.style.height = vh + "px";
-                });
+                  // This timeout is necessary because otherwise stream.getVideoTracks()[0].getSettings().width
+                  // stream.getVideoTracks()[0].getSettings().height are reversed in Firefox (Chrome is not an issue);
+                  setTimeout(() => {
+                    let vw, vh; // display css width, height
+                    const streamAspectRatio =
+                      stream.getVideoTracks()[0].getSettings().width /
+                      stream.getVideoTracks()[0].getSettings().height;
+                    const windowAspectRatio =
+                      window.innerWidth / window.innerHeight;
+                    console.log("windowAspectRatio: " + windowAspectRatio);
+                    console.log(
+                      "Stream width: " +
+                        stream.getVideoTracks()[0].getSettings().width
+                    );
+                    console.log(
+                      "Stream height: " +
+                        stream.getVideoTracks()[0].getSettings().height
+                    );
+                    if (streamAspectRatio > windowAspectRatio) {
+                      vh = window.innerHeight;
+                      vw = vh * streamAspectRatio;
+                    } else {
+                      vw = window.innerWidth;
+                      vh = vw / streamAspectRatio;
+                    }
+                    videoRef.current.style.zIndex = "-2";
+                    videoRef.current.style.top =
+                      -(vh - window.innerHeight) / 2 + "px";
+                    videoRef.current.style.left =
+                      -(vw - window.innerWidth) / 2 + "px";
+                    videoRef.current.style.width = vw + "px";
+                    videoRef.current.style.height = vh + "px";
+                  });
 
-                videoRef.current.onloadedmetadata = function (e) {
-                  videoRef.current.setAttribute("width", videoRef.current.videoWidth);
-                  videoRef.current.setAttribute("height", videoRef.current.videoHeight);
-                  videoRef.current.play();
-                };
-                setCameraActive(true);
-                resolve(stream);
-              }
-            })
-            .catch((error) => {
-              reject(error);
-            });
+                  videoRef.current.onloadedmetadata = function (e) {
+                    videoRef.current.setAttribute(
+                      "width",
+                      videoRef.current.videoWidth
+                    );
+                    videoRef.current.setAttribute(
+                      "height",
+                      videoRef.current.videoHeight
+                    );
+                    videoRef.current.play();
+                  };
+                  setCameraActive(true);
+                  resolve(stream);
+                }
+              })
+              .catch((error) => {
+                reject(error);
+              });
+          }, 1000);
         } else {
           window.addEventListener("orientationchange", launchCameraIfPortrait);
-          setErrorMessage("Por favor rode o seu dispositivo para iniciar a câmera.");
+          setErrorMessage(
+            "Por favor rode o seu dispositivo para iniciar a câmera."
+          );
         }
       });
     }
@@ -146,11 +279,27 @@ function Camera({ setErrorMessage }) {
         canvas.width = 224;
         canvas.height = 224;
 
-        let xStream = ((0 + Math.abs(parseFloat(videoRef.current.style.left))) * videoStreamWidth) / videoWidth;
-        let yStream = (((window.innerHeight - window.innerWidth) / 2) * videoStreamHeight) / videoHeight;
-        let lStream = (Math.max(window.innerWidth, 224) * videoStreamWidth) / videoWidth;
+        let xStream =
+          ((0 + Math.abs(parseFloat(videoRef.current.style.left))) *
+            videoStreamWidth) /
+          videoWidth;
+        let yStream =
+          (((window.innerHeight - window.innerWidth) / 2) * videoStreamHeight) /
+          videoHeight;
+        let lStream =
+          (Math.max(window.innerWidth, 224) * videoStreamWidth) / videoWidth;
 
-        context.drawImage(videoRef.current, xStream, yStream, lStream, lStream, 0, 0, 224, 224);
+        context.drawImage(
+          videoRef.current,
+          xStream,
+          yStream,
+          lStream,
+          lStream,
+          0,
+          0,
+          224,
+          224
+        );
 
         return canvas;
       }
@@ -180,7 +329,10 @@ function Camera({ setErrorMessage }) {
           }
           prediction.dispose();
           let predictedItem = model.recognitionTargets[index];
-          if (probability > selectedLocation.recognitionThreshold && !predictedItem.startsWith("0-")) {
+          if (
+            probability > selectedLocation.recognitionThreshold &&
+            !predictedItem.startsWith("0-")
+          ) {
             resolve(predictedItem);
           } else {
             resolve(null);
@@ -215,22 +367,26 @@ function Camera({ setErrorMessage }) {
 
       const requiredNumberOfPredictions = 4;
       let lastPredictions = new Array(requiredNumberOfPredictions).fill(null);
-      const allElementsInArrayAreEqual = (arr) => arr.every((v) => v !== null && v === arr[0]);
+      const allElementsInArrayAreEqual = (arr) =>
+        arr.every((v) => v !== null && v === arr[0]);
       let previousPrediction;
       let previousZone;
       let previousContentForItemWasZone = false;
       let audio = new Audio();
 
       while (recognitionModel.current.locationId === selectedLocation.id) {
-        
         // Only perform inference if device is in portrait mode
         // Only perform inference if the audio for a zone that was obtained by scanning a item contained in that zone is no longer playing,
         // in order to avoid immediately superimposing the item audio over the zone audio
-        if ((window.innerHeight/window.innerWidth > 1) && (!previousContentForItemWasZone || audio.paused)) {
+        if (
+          window.innerHeight / window.innerWidth > 1 &&
+          (!previousContentForItemWasZone || audio.paused)
+        ) {
           let preProcessedFrame = preProcessFrame(
             stream.getVideoTracks()[0].getSettings().width,
             stream.getVideoTracks()[0].getSettings().height
           );
+          // console.log(preProcessedFrame.toDataURL('image/jpeg'))
           let prediction = await performInference(preProcessedFrame);
           if (prediction) {
             if (previousContentForItemWasZone) {
@@ -239,19 +395,25 @@ function Camera({ setErrorMessage }) {
               if (allElementsInArrayAreEqual(lastPredictions)) {
                 previousPrediction = prediction;
                 lastPredictions.fill(null);
-                let [itemType, itemId] = getItemFromRecognitionTarget(prediction);
-                [itemType, itemId, previousContentForItemWasZone] = getAppropriateItemOrZone(itemType, itemId, previousZone);
+                let [itemType, itemId] =
+                  getItemFromRecognitionTarget(prediction);
+                [itemType, itemId, previousContentForItemWasZone] =
+                  getAppropriateItemOrZone(itemType, itemId, previousZone);
                 if (itemType) {
                   if (itemType === "zone") {
                     previousZone = itemId;
                   }
                   try {
-                    let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId)
+                    let audioUrl = await fetchAudio(
+                      selectedLocation.id,
+                      itemType,
+                      itemId
+                    );
                     audio.src = audioUrl;
                     await audio.play();
                   } catch (err) {
                     console.log(err);
-                  };
+                  }
                 }
               }
             } else {
@@ -263,18 +425,25 @@ function Camera({ setErrorMessage }) {
               ) {
                 previousPrediction = prediction;
                 lastPredictions.fill(null);
-                let [itemType, itemId] = getItemFromRecognitionTarget(prediction);
-                [itemType, itemId, previousContentForItemWasZone] = getAppropriateItemOrZone(itemType, itemId, previousZone);                if (itemType) {
+                let [itemType, itemId] =
+                  getItemFromRecognitionTarget(prediction);
+                [itemType, itemId, previousContentForItemWasZone] =
+                  getAppropriateItemOrZone(itemType, itemId, previousZone);
+                if (itemType) {
                   if (itemType === "zone") {
                     previousZone = itemId;
                   }
                   try {
-                    let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId)
+                    let audioUrl = await fetchAudio(
+                      selectedLocation.id,
+                      itemType,
+                      itemId
+                    );
                     audio.src = audioUrl;
                     await audio.play();
                   } catch (err) {
                     console.log(err);
-                  };
+                  }
                 }
               }
             }
@@ -291,8 +460,11 @@ function Camera({ setErrorMessage }) {
     launchCamera()
       .then(async (stream) => {
         try {
-          let [recognitionTargets, views, items, zones] = await getRecognitionData(selectedLocation.id);
-          recognitionModel.current.model = await loadRecognitionModel(selectedLocation.id);
+          let [recognitionTargets, views, items, zones] =
+            await getRecognitionData(selectedLocation.id);
+          recognitionModel.current.model = await loadRecognitionModel(
+            selectedLocation.id
+          );
           recognitionModel.current.locationId = selectedLocation.id;
           recognitionModel.current.recognitionTargets = recognitionTargets;
           recognitionModel.current.views = views;
@@ -308,12 +480,13 @@ function Camera({ setErrorMessage }) {
         }
       })
       .catch((error) => {
-        console.log(error)
-        setErrorMessage("A câmara não está disponível. Por favor permita o acesso à câmara e recarregue a app.");
+        console.log(error);
+        setErrorMessage(
+          "A câmara não está disponível. Por favor permita o acesso à câmara e recarregue a app."
+        );
         setIsLoading(false);
       });
   }, [selectedLocation]);
-
 
   return (
     <div>
@@ -327,7 +500,11 @@ function Camera({ setErrorMessage }) {
         >
           Alterar localização
         </Button>
-        <SelectLocationModal show={showModal} handleClose={handleModalClose} handleSelect={handleModalSelect} />
+        <SelectLocationModal
+          show={showModal}
+          handleClose={handleModalClose}
+          handleSelect={handleModalSelect}
+        />
       </div>
       {isLoading && <div className="position-absolute loader center"></div>}
       {cameraActive && (
