@@ -3,13 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { locations } from "../data/locations";
 import SelectLocationModal from "./SelectLocationModal";
 import { Button } from "react-bootstrap";
-import {
-  getRecognitionData,
-  loadRecognitionModel,
-  initializeModel,
-} from "../utils/recognition";
+import { getRecognitionData, loadRecognitionModel, initializeModel } from "../utils/recognition";
 import { fetchAudio } from "../utils/fetchAudio";
 import * as tf from "@tensorflow/tfjs";
+import privacyPolicyImage from "../images/privacy-policy.svg";
 
 function Camera({ setErrorMessage }) {
   const { id } = useParams();
@@ -49,10 +46,7 @@ function Camera({ setErrorMessage }) {
         function launchCameraIfPortrait() {
           setTimeout(function () {
             if (window.innerHeight / window.innerWidth > 1) {
-              window.removeEventListener(
-                "orientationchange",
-                launchCameraIfPortrait
-              );
+              window.removeEventListener("orientationchange", launchCameraIfPortrait);
               resolve(launchCamera());
               setErrorMessage("");
             }
@@ -86,9 +80,7 @@ function Camera({ setErrorMessage }) {
                 .enumerateDevices()
                 .then((devices) => {
                   let environmentVideoCameras = devices.filter(
-                    (device) =>
-                      device.kind === "videoinput" &&
-                      device.label.includes("back")
+                    (device) => device.kind === "videoinput" && device.label.includes("back")
                   );
                   if (environmentVideoCameras.length > 1) {
                     let camera;
@@ -100,18 +92,11 @@ function Camera({ setErrorMessage }) {
                       navigator.mediaDevices
                         .getUserMedia(constraints)
                         .then(function (stream) {
-                          let capabilities = stream
-                            .getVideoTracks()[0]
-                            .getCapabilities();
+                          let capabilities = stream.getVideoTracks()[0].getCapabilities();
                           stream.getTracks()[0].stop();
-                          let zoomRangeError = Math.abs(
-                            capabilities.zoom.max - capabilities.zoom.min - 10
-                          );
+                          let zoomRangeError = Math.abs(capabilities.zoom.max - capabilities.zoom.min - 10);
                           if (cameraClosestToTarget) {
-                            if (
-                              cameraClosestToTarget.zoomRangeError >
-                              zoomRangeError
-                            ) {
+                            if (cameraClosestToTarget.zoomRangeError > zoomRangeError) {
                               cameraClosestToTarget = {
                                 deviceId: camera.deviceId,
                                 zoomRangeError: zoomRangeError,
@@ -212,19 +197,11 @@ function Camera({ setErrorMessage }) {
                   setTimeout(() => {
                     let vw, vh; // display css width, height
                     const streamAspectRatio =
-                      stream.getVideoTracks()[0].getSettings().width /
-                      stream.getVideoTracks()[0].getSettings().height;
-                    const windowAspectRatio =
-                      window.innerWidth / window.innerHeight;
+                      stream.getVideoTracks()[0].getSettings().width / stream.getVideoTracks()[0].getSettings().height;
+                    const windowAspectRatio = window.innerWidth / window.innerHeight;
                     console.log("windowAspectRatio: " + windowAspectRatio);
-                    console.log(
-                      "Stream width: " +
-                        stream.getVideoTracks()[0].getSettings().width
-                    );
-                    console.log(
-                      "Stream height: " +
-                        stream.getVideoTracks()[0].getSettings().height
-                    );
+                    console.log("Stream width: " + stream.getVideoTracks()[0].getSettings().width);
+                    console.log("Stream height: " + stream.getVideoTracks()[0].getSettings().height);
                     if (streamAspectRatio > windowAspectRatio) {
                       vh = window.innerHeight;
                       vw = vh * streamAspectRatio;
@@ -233,23 +210,15 @@ function Camera({ setErrorMessage }) {
                       vh = vw / streamAspectRatio;
                     }
                     videoRef.current.style.zIndex = "-2";
-                    videoRef.current.style.top =
-                      -(vh - window.innerHeight) / 2 + "px";
-                    videoRef.current.style.left =
-                      -(vw - window.innerWidth) / 2 + "px";
+                    videoRef.current.style.top = -(vh - window.innerHeight) / 2 + "px";
+                    videoRef.current.style.left = -(vw - window.innerWidth) / 2 + "px";
                     videoRef.current.style.width = vw + "px";
                     videoRef.current.style.height = vh + "px";
                   });
 
                   videoRef.current.onloadedmetadata = function (e) {
-                    videoRef.current.setAttribute(
-                      "width",
-                      videoRef.current.videoWidth
-                    );
-                    videoRef.current.setAttribute(
-                      "height",
-                      videoRef.current.videoHeight
-                    );
+                    videoRef.current.setAttribute("width", videoRef.current.videoWidth);
+                    videoRef.current.setAttribute("height", videoRef.current.videoHeight);
                     videoRef.current.play();
                   };
                   setCameraActive(true);
@@ -262,9 +231,7 @@ function Camera({ setErrorMessage }) {
           }, 1000);
         } else {
           window.addEventListener("orientationchange", launchCameraIfPortrait);
-          setErrorMessage(
-            "Por favor rode o seu dispositivo para iniciar a câmera."
-          );
+          setErrorMessage("Por favor rode o seu dispositivo para iniciar a câmera.");
         }
       });
     }
@@ -279,27 +246,11 @@ function Camera({ setErrorMessage }) {
         canvas.width = 224;
         canvas.height = 224;
 
-        let xStream =
-          ((0 + Math.abs(parseFloat(videoRef.current.style.left))) *
-            videoStreamWidth) /
-          videoWidth;
-        let yStream =
-          (((window.innerHeight - window.innerWidth) / 2) * videoStreamHeight) /
-          videoHeight;
-        let lStream =
-          (Math.max(window.innerWidth, 224) * videoStreamWidth) / videoWidth;
+        let xStream = ((0 + Math.abs(parseFloat(videoRef.current.style.left))) * videoStreamWidth) / videoWidth;
+        let yStream = (((window.innerHeight - window.innerWidth) / 2) * videoStreamHeight) / videoHeight;
+        let lStream = (Math.max(window.innerWidth, 224) * videoStreamWidth) / videoWidth;
 
-        context.drawImage(
-          videoRef.current,
-          xStream,
-          yStream,
-          lStream,
-          lStream,
-          0,
-          0,
-          224,
-          224
-        );
+        context.drawImage(videoRef.current, xStream, yStream, lStream, lStream, 0, 0, 224, 224);
 
         return canvas;
       }
@@ -329,10 +280,7 @@ function Camera({ setErrorMessage }) {
           }
           prediction.dispose();
           let predictedItem = model.recognitionTargets[index];
-          if (
-            probability > selectedLocation.recognitionThreshold &&
-            !predictedItem.startsWith("0-")
-          ) {
+          if (probability > selectedLocation.recognitionThreshold && !predictedItem.startsWith("0-")) {
             resolve(predictedItem);
           } else {
             resolve(null);
@@ -367,8 +315,7 @@ function Camera({ setErrorMessage }) {
 
       const requiredNumberOfPredictions = 4;
       let lastPredictions = new Array(requiredNumberOfPredictions).fill(null);
-      const allElementsInArrayAreEqual = (arr) =>
-        arr.every((v) => v !== null && v === arr[0]);
+      const allElementsInArrayAreEqual = (arr) => arr.every((v) => v !== null && v === arr[0]);
       let previousPrediction;
       let previousZone;
       let previousContentForItemWasZone = false;
@@ -378,10 +325,7 @@ function Camera({ setErrorMessage }) {
         // Only perform inference if device is in portrait mode
         // Only perform inference if the audio for a zone that was obtained by scanning a item contained in that zone is no longer playing,
         // in order to avoid immediately superimposing the item audio over the zone audio
-        if (
-          window.innerHeight / window.innerWidth > 1 &&
-          (!previousContentForItemWasZone || audio.paused)
-        ) {
+        if (window.innerHeight / window.innerWidth > 1 && (!previousContentForItemWasZone || audio.paused)) {
           let preProcessedFrame = preProcessFrame(
             stream.getVideoTracks()[0].getSettings().width,
             stream.getVideoTracks()[0].getSettings().height
@@ -395,20 +339,18 @@ function Camera({ setErrorMessage }) {
               if (allElementsInArrayAreEqual(lastPredictions)) {
                 previousPrediction = prediction;
                 lastPredictions.fill(null);
-                let [itemType, itemId] =
-                  getItemFromRecognitionTarget(prediction);
-                [itemType, itemId, previousContentForItemWasZone] =
-                  getAppropriateItemOrZone(itemType, itemId, previousZone);
+                let [itemType, itemId] = getItemFromRecognitionTarget(prediction);
+                [itemType, itemId, previousContentForItemWasZone] = getAppropriateItemOrZone(
+                  itemType,
+                  itemId,
+                  previousZone
+                );
                 if (itemType) {
                   if (itemType === "zone") {
                     previousZone = itemId;
                   }
                   try {
-                    let audioUrl = await fetchAudio(
-                      selectedLocation.id,
-                      itemType,
-                      itemId
-                    );
+                    let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
                     audio.src = audioUrl;
                     await audio.play();
                   } catch (err) {
@@ -425,20 +367,18 @@ function Camera({ setErrorMessage }) {
               ) {
                 previousPrediction = prediction;
                 lastPredictions.fill(null);
-                let [itemType, itemId] =
-                  getItemFromRecognitionTarget(prediction);
-                [itemType, itemId, previousContentForItemWasZone] =
-                  getAppropriateItemOrZone(itemType, itemId, previousZone);
+                let [itemType, itemId] = getItemFromRecognitionTarget(prediction);
+                [itemType, itemId, previousContentForItemWasZone] = getAppropriateItemOrZone(
+                  itemType,
+                  itemId,
+                  previousZone
+                );
                 if (itemType) {
                   if (itemType === "zone") {
                     previousZone = itemId;
                   }
                   try {
-                    let audioUrl = await fetchAudio(
-                      selectedLocation.id,
-                      itemType,
-                      itemId
-                    );
+                    let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
                     audio.src = audioUrl;
                     await audio.play();
                   } catch (err) {
@@ -460,11 +400,8 @@ function Camera({ setErrorMessage }) {
     launchCamera()
       .then(async (stream) => {
         try {
-          let [recognitionTargets, views, items, zones] =
-            await getRecognitionData(selectedLocation.id);
-          recognitionModel.current.model = await loadRecognitionModel(
-            selectedLocation.id
-          );
+          let [recognitionTargets, views, items, zones] = await getRecognitionData(selectedLocation.id);
+          recognitionModel.current.model = await loadRecognitionModel(selectedLocation.id);
           recognitionModel.current.locationId = selectedLocation.id;
           recognitionModel.current.recognitionTargets = recognitionTargets;
           recognitionModel.current.views = views;
@@ -481,9 +418,7 @@ function Camera({ setErrorMessage }) {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(
-          "A câmara não está disponível. Por favor permita o acesso à câmara e recarregue a app."
-        );
+        setErrorMessage("A câmara não está disponível. Por favor permita o acesso à câmara e recarregue a app.");
         setIsLoading(false);
       });
   }, [selectedLocation]);
@@ -500,11 +435,7 @@ function Camera({ setErrorMessage }) {
         >
           Alterar localização
         </Button>
-        <SelectLocationModal
-          show={showModal}
-          handleClose={handleModalClose}
-          handleSelect={handleModalSelect}
-        />
+        <SelectLocationModal show={showModal} handleClose={handleModalClose} handleSelect={handleModalSelect} />
       </div>
       {isLoading && <div className="position-absolute loader center"></div>}
       {cameraActive && (
@@ -519,10 +450,10 @@ function Camera({ setErrorMessage }) {
         color="primary"
         className="privacy-policy-btn"
         onClick={() => {
-          navigate('/privacy-policy');
+          navigate("/privacy-policy");
         }}
       >
-        Política de Privacidade
+        <img src={privacyPolicyImage} alt="Política de Privacidade" />
       </a>
     </div>
   );

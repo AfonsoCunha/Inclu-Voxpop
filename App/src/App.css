@@ -112,6 +112,7 @@
   text-decoration: none;
   position: absolute;
   bottom: 10px;
-  left: 50%;
+  right: 0;
   transform: translate(-50%, 0);
+  width: 35px;
 }
