@@ -47,6 +47,7 @@
 
 .camera-banner {
   display: none;
+  z-index: 2;
 }
 
 @media screen and (orientation: landscape) {
