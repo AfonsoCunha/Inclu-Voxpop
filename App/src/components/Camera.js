@@ -7,6 +7,7 @@ import { getRecognitionData, loadRecognitionModel, initializeModel } from "../ut
 import { fetchAudio } from "../utils/fetchAudio";
 import * as tf from "@tensorflow/tfjs";
 import privacyPolicyImage from "../images/privacy-policy.svg";
+import { Howl } from 'howler';
 
 function Camera({ setErrorMessage }) {
   const { id } = useParams();
@@ -319,13 +320,13 @@ function Camera({ setErrorMessage }) {
       let previousPrediction;
       let previousZone;
       let previousContentForItemWasZone = false;
-      let audio = new Audio();
+      let audio;
 
       while (recognitionModel.current.locationId === selectedLocation.id) {
         // Only perform inference if device is in portrait mode
         // Only perform inference if the audio for a zone that was obtained by scanning a item contained in that zone is no longer playing,
         // in order to avoid immediately superimposing the item audio over the zone audio
-        if (window.innerHeight / window.innerWidth > 1 && (!previousContentForItemWasZone || audio.paused)) {
+        if (window.innerHeight / window.innerWidth > 1 && (!previousContentForItemWasZone || (audio && !audio.playing()))) {
           let preProcessedFrame = preProcessFrame(
             stream.getVideoTracks()[0].getSettings().width,
             stream.getVideoTracks()[0].getSettings().height
@@ -351,8 +352,13 @@ function Camera({ setErrorMessage }) {
                   }
                   try {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
-                    audio.src = audioUrl;
-                    await audio.play();
+                    audio = new Howl({
+                      src: [audioUrl],
+                      preload: true,
+                      html5: true,
+                      onend: () => { audio.unload(); }
+                    });
+                    audio.play();
                   } catch (err) {
                     console.log(err);
                   }
@@ -379,8 +385,13 @@ function Camera({ setErrorMessage }) {
                   }
                   try {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
-                    audio.src = audioUrl;
-                    await audio.play();
+                    audio = new Howl({
+                      src: [audioUrl],
+                      preload: true,
+                      html5: true,
+                      onend: () => { audio.unload(); }
+                    });
+                    audio.play();
                   } catch (err) {
                     console.log(err);
                   }

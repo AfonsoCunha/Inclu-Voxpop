@@ -9,6 +9,7 @@ export async function fetchAudio(locationId, itemType, itemId) {
       });
       resolve(responseAudio.url);
     } catch (error) {
+      console.log(error)
       reject("Failed to load audio.");
     }
   });
