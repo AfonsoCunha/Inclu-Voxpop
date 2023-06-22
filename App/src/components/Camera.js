@@ -39,7 +39,9 @@ function Camera({ setErrorMessage }) {
     setSelectedLocation(location);
     setCameraActive(false);
     setShowModal(false);
-    videoRef.current.srcObject.getTracks()[0].stop();
+    if (selectedLocation.id !== location.id) {
+      videoRef.current.srcObject.getTracks()[0].stop();
+    }
     navigate(`/camera/${location.id}`);
   };
 
@@ -354,6 +356,10 @@ function Camera({ setErrorMessage }) {
                   }
                   try {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
+                    if (audio) {
+                      console.log("Stopping previous audio")
+                      audio.stop();
+                    }
                     audio = new Howl({
                       src: [audioUrl],
                       preload: true,
