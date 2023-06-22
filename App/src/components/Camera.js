@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { locations } from "../data/locations";
 import SelectLocationModal from "./SelectLocationModal";
+import UnlockAudioModal from "./UnlockAudioModal"
 import { Button } from "react-bootstrap";
 import { getRecognitionData, loadRecognitionModel, initializeModel } from "../utils/recognition";
 import { fetchAudio } from "../utils/fetchAudio";
@@ -13,6 +14,7 @@ function Camera({ setErrorMessage }) {
   const { id } = useParams();
   const videoRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
+  const [showUnlockAudioModal, setShowUnlockAudioModal] = useState(false);
   const location = locations.find((loc) => loc.id === parseInt(id));
   const [selectedLocation, setSelectedLocation] = useState(location);
   const [cameraActive, setCameraActive] = useState(false);
@@ -25,6 +27,9 @@ function Camera({ setErrorMessage }) {
     items: undefined,
     zones: undefined,
   });
+  const silentAudio = new Audio()
+  silentAudio.src = 'data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA=='
+
 
   const handleModalClose = () => {
     setShowModal(false);
@@ -34,11 +39,16 @@ function Camera({ setErrorMessage }) {
     setSelectedLocation(location);
     setCameraActive(false);
     setShowModal(false);
+    videoRef.current.srcObject.getTracks()[0].stop();
     navigate(`/camera/${location.id}`);
   };
 
   const handleChangeLocationClick = () => {
     setShowModal(true);
+  };
+
+  const handleAudioUnlockClick = () => {
+    setShowUnlockAudioModal(false);
   };
 
   useEffect(() => {
@@ -72,10 +82,6 @@ function Camera({ setErrorMessage }) {
                   deviceId: "",
                 },
               };
-              console.log("window.innerHeight" + window.innerHeight);
-              console.log("window.innerWidth" + window.innerWidth);
-              console.log("windowAspectRatio: " + aspectRatio);
-              console.log(constraints);
 
               navigator.mediaDevices
                 .enumerateDevices()
@@ -171,7 +177,7 @@ function Camera({ setErrorMessage }) {
 
           setTimeout(async function () {
             let constraints = await calculateCameraStreamConstraints();
-
+            console.log(constraints);
             // Provide a minimum and maximum width/height range because if I set very specific ideal dimensions the stream is glitchy in some phones
             constraints["video"]["width"] = {
               min: Math.round(constraints["video"]["width"]),
@@ -200,9 +206,6 @@ function Camera({ setErrorMessage }) {
                     const streamAspectRatio =
                       stream.getVideoTracks()[0].getSettings().width / stream.getVideoTracks()[0].getSettings().height;
                     const windowAspectRatio = window.innerWidth / window.innerHeight;
-                    console.log("windowAspectRatio: " + windowAspectRatio);
-                    console.log("Stream width: " + stream.getVideoTracks()[0].getSettings().width);
-                    console.log("Stream height: " + stream.getVideoTracks()[0].getSettings().height);
                     if (streamAspectRatio > windowAspectRatio) {
                       vh = window.innerHeight;
                       vw = vh * streamAspectRatio;
@@ -418,10 +421,23 @@ function Camera({ setErrorMessage }) {
           recognitionModel.current.views = views;
           recognitionModel.current.items = items;
           recognitionModel.current.zones = zones;
+          let audioUnlocked = true;
+
+          const playPromise = silentAudio.play()
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+            }).catch(error => {
+              audioUnlocked = false;
+            });
+          }
 
           await initializeModel(recognitionModel.current.model);
           setIsLoading(false);
           startRecognition(recognitionModel.current, stream);
+          if (!audioUnlocked) {
+            setShowUnlockAudioModal(true)
+          }
+          
         } catch (error) {
           setErrorMessage(error);
           setIsLoading(false);
@@ -447,6 +463,7 @@ function Camera({ setErrorMessage }) {
           Alterar localização
         </Button>
         <SelectLocationModal show={showModal} handleClose={handleModalClose} handleSelect={handleModalSelect} />
+        <UnlockAudioModal show={showUnlockAudioModal} handleClose={handleAudioUnlockClick} handleClick={handleAudioUnlockClick} ></UnlockAudioModal>
       </div>
       {isLoading && <div className="position-absolute loader center"></div>}
       {cameraActive && (
