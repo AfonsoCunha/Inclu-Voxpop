@@ -357,9 +357,8 @@ function Camera({ setErrorMessage }) {
                   try {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
                     if (audio) {
-                      console.log("Stopping previous audio")
                       audio.pause();
-                    }
+                    }      
                     audio = new Audio();
                     audio.src = audioUrl;
                     // audio = new Howl({
@@ -368,7 +367,13 @@ function Camera({ setErrorMessage }) {
                     //   html5: true,
                     //   onend: () => { audio.unload(); }
                     // });
-                    audio.play();
+                    const audioplayPromise = audio.play()
+                    if (audioplayPromise !== undefined) {
+                      audioplayPromise.then(() => {
+                      }).catch(error => {
+                        setShowUnlockAudioModal(true)
+                      });
+                    }
                   } catch (err) {
                     console.log(err);
                   }
@@ -396,7 +401,6 @@ function Camera({ setErrorMessage }) {
                   try {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
                     if (audio) {
-                      console.log("Stopping previous audio")
                       audio.pause();
                     }
                     audio = new Audio();
@@ -407,7 +411,13 @@ function Camera({ setErrorMessage }) {
                     //   html5: true,
                     //   onend: () => { audio.unload(); }
                     // });
-                    audio.play();
+                    const audioplayPromise = audio.play()
+                    if (audioplayPromise !== undefined) {
+                      audioplayPromise.then(() => {
+                      }).catch(error => {
+                        setShowUnlockAudioModal(true)
+                      });
+                    }
                   } catch (err) {
                     console.log(err);
                   }
@@ -434,21 +444,17 @@ function Camera({ setErrorMessage }) {
           recognitionModel.current.views = views;
           recognitionModel.current.items = items;
           recognitionModel.current.zones = zones;
-          let audioUnlocked = true;
-
-          const playPromise = silentAudio.play()
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-            }).catch(error => {
-              audioUnlocked = false;
-            });
-          }
 
           await initializeModel(recognitionModel.current.model);
           setIsLoading(false);
           startRecognition(recognitionModel.current, stream);
-          if (!audioUnlocked) {
-            setShowUnlockAudioModal(true)
+
+          const silentAudioplayPromise = silentAudio.play()
+          if (silentAudioplayPromise !== undefined) {
+            silentAudioplayPromise.then(() => {
+            }).catch(error => {
+              setShowUnlockAudioModal(true)
+            });
           }
           
         } catch (error) {
