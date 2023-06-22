@@ -200,7 +200,6 @@ function Camera({ setErrorMessage }) {
                   videoRef.current.style.position = "absolute";
 
                   // This timeout is necessary because otherwise stream.getVideoTracks()[0].getSettings().width
-                  // stream.getVideoTracks()[0].getSettings().height are reversed in Firefox (Chrome is not an issue);
                   setTimeout(() => {
                     let vw, vh; // display css width, height
                     const streamAspectRatio =
