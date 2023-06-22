@@ -330,7 +330,7 @@ function Camera({ setErrorMessage }) {
         // Only perform inference if device is in portrait mode
         // Only perform inference if the audio for a zone that was obtained by scanning a item contained in that zone is no longer playing,
         // in order to avoid immediately superimposing the item audio over the zone audio
-        if (window.innerHeight / window.innerWidth > 1 && (!previousContentForItemWasZone || (audio && !audio.playing()))) {
+        if (window.innerHeight / window.innerWidth > 1 && (!previousContentForItemWasZone || (audio && audio.paused))) {
           let preProcessedFrame = preProcessFrame(
             stream.getVideoTracks()[0].getSettings().width,
             stream.getVideoTracks()[0].getSettings().height
@@ -358,14 +358,16 @@ function Camera({ setErrorMessage }) {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
                     if (audio) {
                       console.log("Stopping previous audio")
-                      audio.stop();
+                      audio.pause();
                     }
-                    audio = new Howl({
-                      src: [audioUrl],
-                      preload: true,
-                      html5: true,
-                      onend: () => { audio.unload(); }
-                    });
+                    audio = new Audio();
+                    audio.src = audioUrl;
+                    // audio = new Howl({
+                    //   src: [audioUrl],
+                    //   preload: true,
+                    //   html5: true,
+                    //   onend: () => { audio.unload(); }
+                    // });
                     audio.play();
                   } catch (err) {
                     console.log(err);
@@ -393,12 +395,18 @@ function Camera({ setErrorMessage }) {
                   }
                   try {
                     let audioUrl = await fetchAudio(selectedLocation.id, itemType, itemId);
-                    audio = new Howl({
-                      src: [audioUrl],
-                      preload: true,
-                      html5: true,
-                      onend: () => { audio.unload(); }
-                    });
+                    if (audio) {
+                      console.log("Stopping previous audio")
+                      audio.pause();
+                    }
+                    audio = new Audio();
+                    audio.src = audioUrl;
+                    // audio = new Howl({
+                    //   src: [audioUrl],
+                    //   preload: true,
+                    //   html5: true,
+                    //   onend: () => { audio.unload(); }
+                    // });
                     audio.play();
                   } catch (err) {
                     console.log(err);
