@@ -7,6 +7,9 @@ The application can be used in the following locations in Lisbon:
 * Cais do Sodré Transportation Interface
 * Palácio Pimenta
 
+## Inclu Wiki
+Check the Wiki for information on the application requirements, architecture, technology review, demos, and UX test reports.  
+
 ## Licenses
 
 The source code of the application contained in the repository is released under GNU General Public License (GPL-V3). 
